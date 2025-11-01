@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FiX } from "react-icons/fi";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Category({ onClose }) {
+  const { setValue: setCategory } = useLocalStorage("category");
+
   const {
     register,
     handleSubmit,
@@ -19,8 +22,7 @@ function Category({ onClose }) {
     if (!data.title.trim()) {
       return;
     }
-
-    console.log("New category:", data);
+    setCategory(data);
     toast.success("Category added successfully!");
     reset();
   }
@@ -39,7 +41,11 @@ function Category({ onClose }) {
         </button>
       </header>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        autoComplete="off"
+        className="flex flex-col gap-4"
+      >
         <div className="flex flex-col">
           <label htmlFor="title" className="text-sm text-secondary-600 mb-2">
             Title

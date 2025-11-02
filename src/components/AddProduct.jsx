@@ -16,7 +16,13 @@ function AddProduct({ setIsCategoryOpen }) {
   });
 
   const onSubmit = (data) => {
-    setProduct((prev = []) => [...prev, data]);
+    const newProduct = {
+      ...data,
+      date: new Date().toISOString(),
+      id: new Date().toISOString(),
+    };
+    console.log(newProduct);
+    setProduct((prev = []) => [...prev, newProduct]);
     reset();
   };
 

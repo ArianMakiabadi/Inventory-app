@@ -55,19 +55,19 @@ function AddProduct({ setIsCategoryOpen }) {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="quantitiy">Quantitiy</label>
+          <label htmlFor="quantity">quantity</label>
           <input
-            id="quantitiy"
+            id="quantity"
             type="number"
-            placeholder="Please enter the quantitiy"
-            {...register("quantitiy", {
+            placeholder="Please enter the quantity"
+            {...register("quantity", {
               validate: (value) => Number(value) > 0 || "Quantity cannot be 0!",
             })}
             className="w-full"
           />
-          {errors.quantitiy && (
+          {errors.quantity && (
             <span className="text-error text-sm mt-1">
-              {errors.quantitiy.message}
+              {errors.quantity.message}
             </span>
           )}
         </div>

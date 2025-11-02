@@ -39,7 +39,7 @@ function AddProduct({ setIsCategoryOpen }) {
             type="text"
             placeholder="Please enter the title"
             {...register("title", { required: "Title is required!" })}
-            className="w-full bg-secondary-100 border border-secondary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 p-3 rounded-lg"
+            className="w-full"
           />
           {errors.title && (
             <span className="text-error text-sm mt-1">
@@ -57,7 +57,7 @@ function AddProduct({ setIsCategoryOpen }) {
             {...register("quantitiy", {
               validate: (value) => Number(value) > 0 || "Quantity cannot be 0!",
             })}
-            className="w-full bg-secondary-100 border border-secondary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 p-3 rounded-lg"
+            className="w-full"
           />
           {errors.quantitiy && (
             <span className="text-error text-sm mt-1">

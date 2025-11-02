@@ -29,19 +29,7 @@ function Category({ onClose }) {
   }
 
   return (
-    <div className="relative bg-secondary-0 p-5 rounded-xl shadow-md max-w-xl w-full mx-auto">
-      <header className="flex items-start justify-between mb-4">
-        <h2 className="text-lg font-semibold text-secondary-700 mx-auto">
-          Add a new category
-        </h2>
-        <button
-          onClick={onClose}
-          className="text-secondary-400 hover:text-secondary-600 rounded-md p-1"
-        >
-          <FiX />
-        </button>
-      </header>
-
+    <div className="relative bg-secondary-0 rounded-xl max-w-xl w-full mx-auto">
       <form
         onSubmit={handleSubmit(onSubmit)}
         autoComplete="off"
@@ -77,7 +65,7 @@ function Category({ onClose }) {
           <button
             type="button"
             onClick={onClose}
-            className="btn bg-secondary-200 text-secondary-800 px-4 py-2 rounded-xl hover:opacity-90"
+            className="btn btn--secondary  px-4 py-2 rounded-xl"
           >
             Cancel
           </button>

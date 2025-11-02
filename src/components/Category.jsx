@@ -4,7 +4,7 @@ import { FiX } from "react-icons/fi";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 function Category({ onClose }) {
-  const { setValue: setCategory } = useLocalStorage("category");
+  const { setValue: setCategory } = useLocalStorage("category", []);
 
   const {
     register,
@@ -22,9 +22,10 @@ function Category({ onClose }) {
     if (!data.title.trim()) {
       return;
     }
-    setCategory(data);
+    setCategory((prev) => [...prev, data]);
     toast.success("Category added successfully!");
     reset();
+    onClose();
   }
 
   return (
@@ -47,15 +48,12 @@ function Category({ onClose }) {
         className="flex flex-col gap-4"
       >
         <div className="flex flex-col">
-          <label htmlFor="title" className="text-sm text-secondary-600 mb-2">
-            Title
-          </label>
+          <label htmlFor="title">Title</label>
           <input
             id="title"
             type="text"
             placeholder="Please enter the title"
             {...register("title", { required: "Title is required" })}
-            className="w-full bg-secondary-100 border border-secondary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 p-3 rounded-lg"
           />
           {errors.title && (
             <span className="text-error text-sm mt-1">
@@ -65,15 +63,13 @@ function Category({ onClose }) {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="desc" className="text-sm text-secondary-600 mb-2">
-            Description
-          </label>
+          <label htmlFor="desc">Description</label>
           <textarea
             id="desc"
             placeholder="Please enter the description"
             rows={4}
             {...register("desc")}
-            className="w-full bg-secondary-100 border border-secondary-200 focus:outline-none focus:ring-2 focus:ring-primary-300 p-3 rounded-lg resize-none"
+            className="resize-none"
           />
         </div>
 

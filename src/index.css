@@ -88,6 +88,18 @@
     border: 1px solid rgb(var(--color-primary-500));
   }
 
+  /* Removing arrows on Chrome, Safari, Edge, Opera */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Removing arrows on Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   label {
     font-size: 0.875rem;
     color: rgb(var(--color-secondary-600));

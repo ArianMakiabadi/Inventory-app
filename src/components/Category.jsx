@@ -25,7 +25,9 @@ function Category({ onClose }) {
     setCategory((prev) => [...prev, data]);
     toast.success("Category added successfully!");
     reset();
-    onClose();
+    setTimeout(() => {
+      onClose();
+    }, 100);
   }
 
   return (

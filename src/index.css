@@ -133,13 +133,13 @@
 
 @keyframes swing {
   0% {
-    transform: rotate(7deg);
+    transform: rotate(12deg);
   }
   50% {
-    transform: rotate(-7deg);
+    transform: rotate(-12deg);
   }
   100% {
-    transform: rotate(7deg);
+    transform: rotate(12deg);
   }
 }
 

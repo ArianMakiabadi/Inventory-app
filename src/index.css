@@ -77,6 +77,7 @@
     padding: 0.75rem;
     border-radius: 0.5rem;
     outline: none;
+    color: rgb(var(--color-secondary-700));
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
   input:focus,
@@ -116,4 +117,21 @@
   .badge--primary {
     @apply bg-primary-600 text-secondary-0 hover:bg-primary-700;
   }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(7deg);
+  }
+  50% {
+    transform: rotate(-7deg);
+  }
+  100% {
+    transform: rotate(7deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 4s ease-in-out infinite;
+  transform-origin: top center;
 }

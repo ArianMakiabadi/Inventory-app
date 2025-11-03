@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 function AddProduct({ setIsCategoryOpen }) {
+  const { categories, setProducts } = useLocalStorageContext();
   const {
     register,
     handleSubmit,
@@ -21,13 +22,10 @@ function AddProduct({ setIsCategoryOpen }) {
       date: new Date().toISOString(),
       id: new Date().toISOString(),
     };
-    console.log(newProduct);
-    setProduct((prev = []) => [...prev, newProduct]);
+    setProducts((prev = []) => [...prev, newProduct]);
     reset();
   };
 
-  const { value: categories } = useLocalStorage("category");
-  const { setValue: setProduct } = useLocalStorage("products", []);
   return (
     <div className="bg-secondary-0 p-5 rounded-xl shadow-md max-w-xl w-full mx-auto">
       <h2 className="font-semibold text-lg text-secondary-700 text-center">

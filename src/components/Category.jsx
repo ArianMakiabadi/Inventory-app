@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { FiX } from "react-icons/fi";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 function Category({ onClose }) {
-  const { setValue: setCategory } = useLocalStorage("category", []);
+  const { setCategories } = useLocalStorageContext();
 
   const {
     register,
@@ -22,7 +21,7 @@ function Category({ onClose }) {
     if (!data.title.trim()) {
       return;
     }
-    setCategory((prev) => [...prev, data]);
+    setCategories((prev) => [...prev, data]);
     toast.success("Category added successfully!");
     reset();
     setTimeout(() => {

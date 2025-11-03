@@ -1,11 +1,8 @@
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 import SingleProduct from "./SingleProduct";
 
 function ViewSection() {
-  const { value: products, setValue: setProducts } = useLocalStorage(
-    "products",
-    []
-  );
+  const { products, setProducts } = useLocalStorageContext();
 
   const handleDelete = (id) => {
     const newProducts = products.filter((product) => product.id !== id);
